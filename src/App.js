@@ -5,11 +5,14 @@ import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import SaveIcon from '@material-ui/icons/Save'
 import DeleteIcon from '@material-ui/icons/Delete'
-import TextField from '@material-ui/core/TextField'
 import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { orange } from '@material-ui/core/colors'
 import 'fontsource-roboto';
 import Typography from '@material-ui/core/Typography'
+import Container from '@material-ui/core/Container'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
+
 
 const useStyles = makeStyles({
   root : {
@@ -63,6 +66,7 @@ function CheckBoxExample()  {
 function App() {
   return (
     <ThemeProvider theme={theme}>
+     <Container maxWidth="md">
       <Typography variant="h2">
         Hello from MUI
       </Typography>
@@ -71,7 +75,23 @@ function App() {
       </Typography>
       <ButtonStyled />
       <br />
-      <TextField variant="standard" color="secondary" type="email" label="Time" placeholder="test@gmail.com" />
+      <Grid container spacing={4} justify="center">
+        <Grid item>
+          <Paper style={{ height : '75px', width : '50px' }} />
+        </Grid>
+        <Grid item>
+          <Paper style={{ height : '75px', width : '50px' }} />
+        </Grid>
+        <Grid item>
+          <Paper style={{ height : '75px', width : '50px' }} />
+        </Grid>
+        <Grid item>
+          <Paper style={{ height : '75px', width : '50px' }} />
+        </Grid>
+        <Grid item>
+          <Paper style={{ height : '75px', width : '50px' }} />
+        </Grid>
+      </Grid>
       <br/>
       <CheckBoxExample/>
       <br/>
@@ -83,6 +103,7 @@ function App() {
        Discard
      </Button>
      </ButtonGroup>
+     </Container>
     </ThemeProvider>
   );
 }
