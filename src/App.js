@@ -6,7 +6,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import SaveIcon from '@material-ui/icons/Save'
 import DeleteIcon from '@material-ui/icons/Delete'
 import TextField from '@material-ui/core/TextField'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { orange } from '@material-ui/core/colors'
 
 const useStyles = makeStyles({
   root : {
@@ -15,6 +16,14 @@ const useStyles = makeStyles({
     borderRadius : 15,
     color : "#fff",
     padding : "0 30px"
+  }
+})
+
+const theme = createMuiTheme({
+  palette : {
+    primary : {
+      main : orange[500]
+    }
   }
 })
 
@@ -46,22 +55,22 @@ function CheckBoxExample()  {
 
 function App() {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <ButtonStyled />
       <br />
       <TextField variant="standard" color="secondary" type="email" label="Time" placeholder="test@gmail.com" />
       <br/>
       <CheckBoxExample/>
       <br/>
-     <ButtonGroup>
-     <Button startIcon={<SaveIcon />}  variant="contained" color="primary">
+     <ButtonGroup color="primary">
+     <Button startIcon={<SaveIcon />}  variant="contained" >
        Save
      </Button>
-     <Button startIcon={<DeleteIcon />}  variant="contained" color="secondary">
+     <Button startIcon={<DeleteIcon />}  variant="contained">
        Discard
      </Button>
      </ButtonGroup>
-    </div>
+    </ThemeProvider>
   );
 }
 
