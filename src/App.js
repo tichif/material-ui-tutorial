@@ -6,12 +6,16 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import SaveIcon from '@material-ui/icons/Save'
 import DeleteIcon from '@material-ui/icons/Delete'
 import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-import { orange } from '@material-ui/core/colors'
 import 'fontsource-roboto';
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
+import AppBar from '@material-ui/core/AppBar'
+import ToolBar from '@material-ui/core/ToolBar'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
+import './App.css'
 
 
 const useStyles = makeStyles({
@@ -25,11 +29,7 @@ const useStyles = makeStyles({
 })
 
 const theme = createMuiTheme({
-  palette : {
-    primary : {
-      main : orange[500]
-    }
-  },
+
   typography : {
     h2 : {
       fontSize : 36
@@ -49,7 +49,7 @@ function CheckBoxExample()  {
     <FormControlLabel
     control={
       <Checkbox
-      icon={<DeleteIcon/>}
+      icon={<MenuIcon/>}
       checkedIcon={<SaveIcon/>}
         checked={checked}
         onChange={e => setChecked(e.target.checked)}
@@ -67,7 +67,21 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
      <Container maxWidth="md">
-      <Typography variant="h2">
+       <AppBar>
+         <ToolBar>
+           <IconButton>
+            <MenuIcon />
+           </IconButton>
+           <Typography variant="h6">
+              MUI Theme
+           </Typography>
+           <Button>
+             Login
+           </Button>
+         </ToolBar>
+       </AppBar>
+     <div className="app">
+     <Typography variant="h2">
         Hello from MUI
       </Typography>
       <Typography variant="subtitle1">
@@ -76,17 +90,17 @@ function App() {
       <ButtonStyled />
       <br />
       <Grid container spacing={4} justify="center">
-        <Grid item>
-          <Paper style={{ height : '75px', width : '50px' }} />
+        <Grid item xs={12} sm={6}>
+          <Paper style={{ height : '75px', width : '100%' }} />
         </Grid>
-        <Grid item>
-          <Paper style={{ height : '75px', width : '50px' }} />
+        <Grid item lg={3}>
+          <Paper style={{ height : '75px', width : '100%' }} />
         </Grid>
-        <Grid item>
-          <Paper style={{ height : '75px', width : '50px' }} />
+        <Grid item lg={3}>
+          <Paper style={{ height : '75px', width : '100%' }} />
         </Grid>
-        <Grid item>
-          <Paper style={{ height : '75px', width : '50px' }} />
+        <Grid item xs>
+          <Paper style={{ height : '75px', width : '100%' }} />
         </Grid>
         <Grid item>
           <Paper style={{ height : '75px', width : '50px' }} />
@@ -103,6 +117,7 @@ function App() {
        Discard
      </Button>
      </ButtonGroup>
+     </div>
      </Container>
     </ThemeProvider>
   );
