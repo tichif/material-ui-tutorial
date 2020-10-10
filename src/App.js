@@ -8,6 +8,8 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import TextField from '@material-ui/core/TextField'
 import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { orange } from '@material-ui/core/colors'
+import 'fontsource-roboto';
+import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles({
   root : {
@@ -23,6 +25,11 @@ const theme = createMuiTheme({
   palette : {
     primary : {
       main : orange[500]
+    }
+  },
+  typography : {
+    h2 : {
+      fontSize : 36
     }
   }
 })
@@ -56,6 +63,12 @@ function CheckBoxExample()  {
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <Typography variant="h2">
+        Hello from MUI
+      </Typography>
+      <Typography variant="subtitle1">
+        Learn material UI
+      </Typography>
       <ButtonStyled />
       <br />
       <TextField variant="standard" color="secondary" type="email" label="Time" placeholder="test@gmail.com" />
